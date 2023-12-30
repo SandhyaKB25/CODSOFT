@@ -1,1 +1,53 @@
+import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
+public class GuessNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int min = 1;
+        int max = 100;
+        int maxattempts = 3;
+        int score = 0;
+        boolean play = true;
+        while(play)
+        {
+            int num = ThreadLocalRandom.current().nextInt(min,max+1);
+            System.out.println("welcome to the game!");
+            System.out.println("the number is between " +  min  +  " and "  +  max);
+            System.out.println("maximum attempts = " + maxattempts);
+            int attempts = 0;
+            boolean noguessed = false;
+            while(attempts<maxattempts && !noguessed){
+                System.out.println("guess the no:");
+                int myguess = sc.nextInt();
+                attempts++;
+                if(myguess == num){
+                    System.out.println("HOOREYYY!! you have guessed the correct number");
+                    score++;
+                    noguessed = true;
+                }
+                else if(myguess<num)
+                {
+                    System.out.println("guessed a low no");
 
+                }
+                else{
+                    System.out.println("guessed a high no");
+
+                }
+
+            }
+            if(!noguessed){ 
+                System.out.println("attempts are over. The correct number is "  +  num);
+
+            }
+        System.out.println("wanna play again ?(yes/no):");
+        String choice = sc.next();
+        if(!choice.equalsIgnoreCase("yes")){
+            play = false;
+        }
+        }
+        System.out.println("well played!!! hope you had fun :)");
+        System.out.println("you scored: " +  score);
+        sc.close();
+        }
+    }
