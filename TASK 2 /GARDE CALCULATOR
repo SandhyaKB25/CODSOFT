@@ -1,1 +1,32 @@
+import java.util.Scanner;
+public class StudentGrade {
+public static void main(String[] args) {
+     Scanner sc = new Scanner(System.in); 
+        System.out.println("enter no of subjects:");
+        int n = sc.nextInt();
+        int total = 0;
+        for(int i=1;i<=n;i++){
+            System.out.println("enter marks "+ i +":");
+            int marks = sc.nextInt();
+            total+=marks;
+        }
+        float average = total/n;
+        System.out.println("totalmarks obtained:"+total);
+        System.out.println("average marks:"+average);
+        if(average>=90)
+        System.out.println("A Grade");
+        else if(average>=80)
+        System.out.println("B Grade");
+        else if(average>=70)
+        System.out.println("C Grade");
+        else if(average>=60)
+        System.out.println("D Grade");
+        else if(average>=50)
+        System.out.println("E grade");
+        else
+        System.out.println("F grade \n Fail");
+        sc.close();
 
+    }
+    
+}
